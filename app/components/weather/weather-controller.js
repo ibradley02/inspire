@@ -1,6 +1,10 @@
 function WeatherController(){
 	var weatherService = new WeatherService();
 
+	var kelvin = '°K'
+	var celsius = '°C'
+	var farenheit = '°F'
+
 //GET WEATHER DATA FROM SERVICE
 	weatherService.getWeather(function(weather){
 		console.log(weather)
@@ -17,11 +21,11 @@ function WeatherController(){
 				<div class="col-xs-6">${weather.name}</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-6 col-xs-offset-3">Temp: ${weather.main.temp}</div>
+				<div class="col-xs-6 col-xs-offset-3">Temp: ${weather.main.temp + kelvin}</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-6">Highest Temp: ${weather.main.temp_max}</div>
-				<div class="col-xs-6">Lowest Temp: ${weather.main.temp_min}</div>
+				<div class="col-xs-6">Highest Temp: ${weather.main.temp_max} + kelvin</div>
+				<div class="col-xs-6">Lowest Temp: ${weather.main.temp_min} + kelvin</div>
 			</div>
 		</div>
 			`

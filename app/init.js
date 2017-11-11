@@ -3,7 +3,7 @@ var app = {
   controllers:{
     weatherController: new WeatherController(),
     quoteController: new QuoteController(),
-    // todoController: new ToDoController(),
+    todoController: new ToDoController(),
     imageController: new ImageController()
   }
 }

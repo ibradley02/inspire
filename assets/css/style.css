@@ -16,7 +16,7 @@
     visibility: visible;
     opacity: 1;
 }
-.body{
-    background-repeat: no-repeat;
-    background-size: cover;
+body{
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
 }

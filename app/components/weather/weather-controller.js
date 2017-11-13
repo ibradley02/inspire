@@ -1,6 +1,6 @@
 function WeatherController(){
 	var weatherService = new WeatherService();
-
+	var kelvin = '°K'
 	var celsius = '°C'
 	var farenheit = '°F'
 

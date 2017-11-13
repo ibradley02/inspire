@@ -4,10 +4,14 @@ function ImageService() {
 	var apiUrl = url + encodeURIComponent(url2);
 
 	this.getImage = function (callWhenDone) {
-		return $.get(apiUrl, function (res) {
+		var self = this
+		$.get(apiUrl, function (res) {
 			res = JSON.parse(res)
-			// console.log('Image Data:', res)
-			callWhenDone(res)
+			if(res.large_url != null){
+				callWhenDone(res)
+			}else{
+				self.getImage(callWhenDone)
+			}
 		})
 	}
 

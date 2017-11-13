@@ -24,7 +24,7 @@ function WeatherController() {
 				<div class="col-xs-6 col-xs-offset-3">${temp}</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-6">High:${tempHigh}</div>
+				<div class="col-xs-6">High: ${tempHigh}</div>
 				<div class="col-xs-6">Low: ${tempLow}</div>
 			</div>
 		</div>

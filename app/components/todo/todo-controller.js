@@ -9,7 +9,7 @@ function ToDoController() {
 	var todoService = new TodoService()
 
 	// Use this getTodos function as your callback for all other edits
-	function getTodos(){
+	function getTodos() {
 		//FYI DONT EDIT ME :)
 		todoService.getTodos(draw)
 	}
@@ -19,31 +19,33 @@ function ToDoController() {
 		//BUILD YOUR TODO TEMPLATE HERE
 		var formElem = document.getElementById('todo')
 		var template = ''
-		for (var i = 0; i < todoList.length; i++) {
-			var todo = todoList[i];
+		for (var i = 0; i < todos.length; i++) {
+			var todo = todos[i];
 			template += `
-				
-						`
-			formElem.innerHTML = template
-			
+			<div class="col-xs-12">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<i class="glyphicon glyphicon-trash pull-right" onclick="app.controllers.todoController.removeTodo(${i})"></i>
+					<h3>${todo.todo}</h3>
+				</div>
+			</div>
+		</div>
+
+`
 		}
+		formElem.innerHTML = template
 		//DONT FORGET TO LOOP
 	}
 
-	this.addTodoFromForm = function (e) {
-		e.preventDefault()
+	this.addTodoFromForm = function addTodoFromForm(event) {
+		event.preventDefault()
 		// TAKE THE INFORMATION FORM THE FORM
-		var form = e.target
+		var form = event.target.newItem.value
 		var todo = {
-			todo: e.target.value
-			// DONT FORGET TO BUILD YOUR TODO OBJECT
+			todo: form,
+			completed: false
 		}
-
-		//PASSES THE NEW TODO TO YOUR SERVICE
-		//DON'T FORGET TO REDRAW THE SCREEN WITH THE NEW TODO
-		//YOU SHOULDN'T NEED TO CHANGE THIS
 		todoService.addTodo(todo, getTodos)
-		                         //^^^^^^^ EXAMPLE OF HOW TO GET YOUR TOODOS AFTER AN EDIT
 	}
 
 	this.toggleTodoStatus = function (todoId) {
@@ -52,11 +54,13 @@ function ToDoController() {
 		// YEP THATS IT FOR ME
 	}
 
-	this.removeTodo = function (todoId) {
+	this.removeTodo = function removeTodo(index) {
+		todoService.removeTodo(index, getTodos)
 		// ask the service to run the remove todo with this id
 
 		// ^^^^ THIS LINE OF CODE PROBABLY LOOKS VERY SIMILAR TO THE toggleTodoStatus
 	}
+	getTodos()
 
 	// IF YOU WANT YOUR TODO LIST TO DRAW WHEN THE PAGE FIRST LOADS WHAT SHOULD YOU CALL HERE???
 

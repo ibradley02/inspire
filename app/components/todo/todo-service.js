@@ -1,28 +1,27 @@
 function TodoService() {
 	// A local copy of your todos
-	var todoList = []
 	var baseUrl = 'https://inspire-server.herokuapp.com/api/todos/IANBRADLEY'
-
+	var id = 0
 	function logError(err) {
 		console.error('UMM SOMETHING BROKE: ', err)
 		//CAN YOU NOTIFY THE USER IF SOMETHING BREAKS? 
 		//do this without breaking the controller/service responsibilities
 	}
 
-	this.getTodos = function (draw) {
+	this.getTodos = function getTodos(draw) {
 		$.get(baseUrl)
-			.then(function (res) { // <-- WHY IS THIS IMPORTANT????
-				
+			.then(function (res) {
+				todos = res
+				draw(todos)
+				 // <-- WHY IS THIS IMPORTANT????
 			})
 			.fail(logError)
 	}
 
-	this.addTodo = function (todo) {
+	this.addTodo = function addTodo(todo, getTodos) {
 		// WHAT IS THIS FOR???
 		$.post(baseUrl, todo)
-			.then(function(res){ // <-- WHAT DO YOU DO AFTER CREATING A NEW TODO?
-				
-			}) 
+			.then(getTodos) // <-- WHAT DO YOU DO AFTER CREATING A NEW TODO?
 			.fail(logError)
 	}
 
@@ -45,8 +44,12 @@ function TodoService() {
 			.fail(logError)
 	}
 
-	this.removeTodo = function () {
-		// Umm this one is on you to write.... It's also unique, like the ajax call above. The method is a DELETE
-		
+	this.removeTodo = function removeTodo(index, getTodos) {
+		$.ajax({
+			url: baseUrl + '/' + index,
+			method: 'DELETE'
+		})
+			.then(getTodos)
+			.fail(logError)		
 	}
 }

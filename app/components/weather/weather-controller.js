@@ -37,8 +37,11 @@ function WeatherController(){
 		weatherElem.innerHTML = template
 		
 	}
-	this.changeTempUnit = function(e){
+	this.changeToFarenheit = function(e){
 		
+	}
+	this.changeToCelsius = function(e){
+
 	}
 
 }

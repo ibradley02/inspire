@@ -17,15 +17,25 @@ function ToDoController() {
 	function draw(todos) {
 		//WHAT IS MY PURPOSE?
 		//BUILD YOUR TODO TEMPLATE HERE
+		var formElem = document.getElementById('todo')
 		var template = ''
+		for (var i = 0; i < todoList.length; i++) {
+			var todo = todoList[i];
+			template += `
+				
+						`
+			formElem.innerHTML = template
+			
+		}
 		//DONT FORGET TO LOOP
 	}
 
 	this.addTodoFromForm = function (e) {
-		e.preventDefault() // <-- hey this time its a freebie don't forget this
+		e.preventDefault()
 		// TAKE THE INFORMATION FORM THE FORM
 		var form = e.target
 		var todo = {
+			todo: e.target.value
 			// DONT FORGET TO BUILD YOUR TODO OBJECT
 		}
 

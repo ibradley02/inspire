@@ -11,12 +11,14 @@ function QuoteController(){
 		var template = ''
 		template += `
 		<div class="row">
-		<div class="col-xs-6 col-xs-offset-3">
-			<p>${quote.quote}</p>
-		</div>
-		<div class="col-xs-6 col-xs-offset-3">
-			<h5>${quote.author}</h5>
-		</div>
+			<div class="quote-wrap">
+				<div class="col-xs-6 col-xs-offset-3 quote">
+					<p>"${quote.quote}"</p>
+				</div>
+				<div class="col-xs-6 col-xs-offset-3 quote-author">
+					<h5>-${quote.author}</h5>
+				</div>
+			</div>
 	</div>
 		`
 		quoteElem.innerHTML = template

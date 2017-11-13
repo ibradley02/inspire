@@ -1,7 +1,7 @@
 function TodoService() {
 	// A local copy of your todos
 	var todoList = []
-	var baseUrl = 'https://inspire-server.herokuapp.com/api/todos/YOURNAMEHERE'
+	var baseUrl = 'https://inspire-server.herokuapp.com/api/todos/IANBRADLEY'
 
 	function logError(err) {
 		console.error('UMM SOMETHING BROKE: ', err)
@@ -49,5 +49,4 @@ function TodoService() {
 		// Umm this one is on you to write.... It's also unique, like the ajax call above. The method is a DELETE
 		
 	}
-
 }

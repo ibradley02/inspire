@@ -1,3 +1,16 @@
 .white{
     color: white;
 }
+.quote-author{
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.4s, visibility 0.4s;
+
+}
+.quote-wrap:hover .quote-author{
+    visibility: visible;
+    opacity: 1;
+}
+.black{
+    color: black;
+}

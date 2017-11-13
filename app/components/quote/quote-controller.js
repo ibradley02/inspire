@@ -12,7 +12,7 @@ function QuoteController(){
 		template += `
 		<div class="row">
 			<div class="quote-wrap">
-				<div class="col-xs-6 col-xs-offset-3 quote">
+				<div class="col-xs-6 col-xs-offset-3 quote blackbox">
 					<p>"${quote.quote}"</p>
 				</div>
 				<div class="col-xs-6 col-xs-offset-3 quote-author">

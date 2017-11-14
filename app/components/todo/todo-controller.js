@@ -24,16 +24,23 @@ function ToDoController() {
 			template += `
 			<div class="col-xs-12">
 			<div class="panel panel-info">
-				<div class="panel-heading">
+			<div class="panel-heading">
 					<i class="glyphicon glyphicon-trash pull-right" onclick="app.controllers.todoController.removeTodo(${i})"></i>
 					<h3>${todo.todo}</h3>
 				</div>
-			</div>
-		</div>
-
-`
+				</div>
+				</div>
+				`
+			}
+			formElem.innerHTML = template
+				
+		var formHeaderElem = document.getElementById('formId')
+		var template2= ''
+		for (var i = 0; i < todos.length; i++) {
+			var todo2 = todos[i];
+			template2 = `${todos.length}`
 		}
-		formElem.innerHTML = template
+		formHeaderElem.innerHTML = template2
 		//DONT FORGET TO LOOP
 	}
 
@@ -56,12 +63,7 @@ function ToDoController() {
 
 	this.removeTodo = function removeTodo(index) {
 		todoService.removeTodo(index, getTodos)
-		// ask the service to run the remove todo with this id
-
-		// ^^^^ THIS LINE OF CODE PROBABLY LOOKS VERY SIMILAR TO THE toggleTodoStatus
 	}
 	getTodos()
-
-	// IF YOU WANT YOUR TODO LIST TO DRAW WHEN THE PAGE FIRST LOADS WHAT SHOULD YOU CALL HERE???
 
 }

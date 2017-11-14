@@ -13,7 +13,7 @@
 
 		<div id="quote" class="text-center"></div>
 
-		<form class="form" onsubmit="app.controllers.todoController.addTodoFromForm(event)" id="formId">
+		<form class="form" onsubmit="app.controllers.todoController.addTodoFromForm(event)">
 			<div class="form-group">
 				<label for="todoInput">To-Do</label>
 				<input type="text" name="newItem" class="form-control">
@@ -22,8 +22,12 @@
 				<button type="submit" class="btn btn-success">Add To-Do</button>
 			</div>
 		</form>
-		<!-- <button type="submit" onclick="app.controllers.todoController.removeTodo(event)" class="btn btn-default">Delete To-Do</button> -->
-		<div class="row" id="todo"></div>
+		<div class="row">
+			<div class="col-xs-12">
+				<h3>Todo's Left: <span id="formId">--</span></h3>
+			</div>
+		</div>
+		<div class="row offwhite" id="todo"></div>
 
 	</div>
 
